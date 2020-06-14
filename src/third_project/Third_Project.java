@@ -120,30 +120,53 @@ public class Third_Project {
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
 
-        // The Bipartaite Graph.
-        boolean Graph[][] = new boolean[][]{
-            {false, true, true,
-                false, false, false},
-            {true, false, false,
-                true, false, false},
-            {false, false, true,
-                false, false, false},
-            {false, false, true,
-                true, false, false},
-            {false, false, false,
-                false, false, false},
-            {false, false, false,
-                false, false, true}};
-
         Job_Vacancies obj = new Job_Vacancies();
         Scanner number = new Scanner(System.in);
         
-        System.out.println("Enter Number of Applicants : ");
-        obj.insert_Count_Applicants(number.nextInt());
         
-        System.out.println("Enter Number of Jobs : ");
-        obj.insert_Count_Jobs(number.nextInt());
+        int job = 0;
+        int Count_Applicant = 0;
+        int Count_Job = 0;
+        int i = 0;
+        int j;
         
-        System.out.println("Maximum number of Applicants that are suitble for the job : " + obj.Maximum_Bipartite_Matching(Graph));
+        // The Bipartite Graph.
+        boolean [][]Graph;
+        
+        System.out.println("Enter the Number of Applicants : ");
+        Count_Applicant = number.nextInt();
+        obj.insert_Count_Applicants(Count_Applicant);
+        
+        System.out.println("Enter the Number of Jobs : ");
+        Count_Job = number.nextInt();
+        obj.insert_Count_Jobs(Count_Job);
+        
+        Graph = new boolean [Count_Applicant][Count_Job];
+        
+        // Here we make the user enter how many jobs did the applicant submittied in.
+        while (i < Count_Applicant)
+        {
+            System.err.println("Enter the jobs that Applicant : "+ i + " entered or enter -1 to go to next applicant");
+            job = number.nextInt();
+            
+            if (job != -1)
+            {
+                Graph[i][job] = true;
+            }
+            else
+            {
+                for (j = 0; i < j; j++)
+                {
+                    if (Graph[i][j] != true)
+                    {
+                        Graph[i][j] = false;
+                    }
+                }
+                i ++;
+            }
+            
+        }
+        System.out.println("Maximum flow of Applicants that are suitble for the job : " + obj.Maximum_Bipartite_Matching(Graph));
+               
     }
 }
