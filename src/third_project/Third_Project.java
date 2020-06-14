@@ -76,8 +76,7 @@ class Job_Vacancies
         return false;
     }
 
-    // Returns maximum number  
-    // of matching from M to N 
+    // Maximum matching using ford fulkerson.
     public int Maximum_Bipartite_Matching(boolean[][] Graph)
     { 
         int[] Matched_Applicant = new int[Jobs_Number];
@@ -136,7 +135,6 @@ public class Third_Project {
             {false, false, false,
                 false, false, true}};
 
-        // Instance of 
         Job_Vacancies m = new Job_Vacancies();
         Scanner number = new Scanner(System.in);
         
