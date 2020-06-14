@@ -135,15 +135,15 @@ public class Third_Project {
             {false, false, false,
                 false, false, true}};
 
-        Job_Vacancies m = new Job_Vacancies();
+        Job_Vacancies obj = new Job_Vacancies();
         Scanner number = new Scanner(System.in);
         
         System.out.println("Enter Number of Applicants : ");
-        m.insert_Count_Applicants(number.nextInt());
+        obj.insert_Count_Applicants(number.nextInt());
         
         System.out.println("Enter Number of Jobs : ");
-        m.insert_Count_Jobs(number.nextInt());
+        obj.insert_Count_Jobs(number.nextInt());
         
-        System.out.println("Maximum number of Applicants that are suitble for the job : " + m.Maximum_Bipartite_Matching(Graph));
+        System.out.println("Maximum number of Applicants that are suitble for the job : " + obj.Maximum_Bipartite_Matching(Graph));
     }
 }
